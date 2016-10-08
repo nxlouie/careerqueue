@@ -8,6 +8,8 @@
         {% for metric in metrics %}
           <li>{{ metric.metric_name }}<input type="text" name="{{ metric.metric_id }}"></li>
         {% endfor %}
+          <textarea cols="86" rows ="20" name="comments"></textarea>
+        <input type="submit" value="Submit">
       </form>
     </ul>
   {% endif %}
