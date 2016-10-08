@@ -20,6 +20,7 @@ CREATE TABLE Ticket (
   grad_year       char(4)       NOT NULL,
   comments        varchar(200),
   recruiter_id    int,
+  hidden          bit           DEFAULT 0,
   PRIMARY KEY (ticket_num),
   FOREIGN KEY (recruiter_id)    REFERENCES Recruiter (recruiter_id)
 );
