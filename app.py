@@ -10,6 +10,7 @@ app.register_blueprint(controllers.ticket)
 app.register_blueprint(controllers.main)
 app.register_blueprint(controllers.queue)
 app.register_blueprint(controllers.survey)
+app.register_blueprint(controllers.profile)
 
 app.secret_key = "super secret key"
 if __name__ == '__main__':

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+	<p>Metrics:</p>
+	{% if metrics %}
+		<ul style="list-style: none;">
+		  {% for metric in metrics %}
+			 <li>{{ metric.metric_name }}</li>
+		  {% endfor %}
+		</ul>
+  	{% endif %}
+
+  	<tr>
+  		<form action="{{ url_for('profile.profile_route') }}" method="POST">
+  			<td>New:<input type="text" name="metric_name"></td>
+  			<td><input type="submit" value="Submit"></td>
+  		</form>
+  	</tr>
+
+
+{% endblock %}     
