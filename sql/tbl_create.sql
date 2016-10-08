@@ -17,7 +17,8 @@ CREATE TABLE Ticket (
   phone           varchar(20)   NOT NULL,
   email           varchar(40)   NOT NULL,
   major           varchar(5)    NOT NULL,
-  grad_year       varchar(4)    NOT NULL,
+  grad_year       char(4)       NOT NULL,
+  comments        varchar(200),
   recruiter_id    int,
   PRIMARY KEY (ticket_num),
   FOREIGN KEY (recruiter_id)    REFERENCES Recruiter (recruiter_id)

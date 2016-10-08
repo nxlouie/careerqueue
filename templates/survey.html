@@ -2,5 +2,16 @@
 {% block content %}
   <h1>Survey</h1>
 
+  {% if metrics %}
+    <ul style="list-style: none;">
+      <form action="{{url_for('survey.survey_route')}}" method="POST">
+        {% for metric in metrics %}
+          <li>{{ metric.metric_name }}<input type="text" name="{{ metric.metric_id }}"></li>
+        {% endfor %}
+      </form>
+    </ul>
+  {% endif %}
+
+
 
 {% endblock %}
