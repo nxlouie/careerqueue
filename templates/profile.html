@@ -1,22 +1,40 @@
 {% extends "base.html" %}
 {% block content %}
 
-
 	<p>Metrics:</p>
 	{% if metrics %}
-		<ul style="list-style: none;">
+  	<ul style="list-style: none;">
 		  {% for metric in metrics %}
 			 <li>{{ metric.metric_name }}</li>
 		  {% endfor %}
 		</ul>
-  	{% endif %}
+  {% endif %}
 
-  	<tr>
-  		<form action="{{ url_for('profile.profile_route') }}" method="POST">
-  			<td>New:<input type="text" name="metric_name"></td>
-  			<td><input type="submit" value="Submit"></td>
-  		</form>
-  	</tr>
+  <tr>
+    <form action="{{ url_for('profile.profile_route') }}" method="POST">
+      <td>New Metric: <input type="text" name="metric_name"></td>
+      <td><input type="submit" value="Submit"></td>
+      <input type="hidden" name="op" value="metric">
+    </form>
+  </tr>
 
+  <p>Recruiters</p>
+  {% if recruiters %}
+  	<ul style="list-style: none;">
+		  {% for recruiter in recruiters %}
+			 <li>{{ recruiter.firstname }} {{ recruiter.lastname }}</li>
+		  {% endfor %}
+		</ul>
+  {% endif %}
+
+  <p>New Recruiter:</p>
+  <tr>
+    <form action="{{ url_for('profile.profile_route') }}" method="POST">
+      <td>Firstname: <input type="text" name="recruiter_firstname"></td>
+      <td>Lastname: <input type="text" name="recruiter_lastname"></td>
+      <input type="hidden" name="op" value="recruiter">
+      <td><input type="submit" value="Submit"></td>
+    </form>
+  </tr>
 
 {% endblock %}     

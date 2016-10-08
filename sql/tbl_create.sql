@@ -4,9 +4,9 @@ CREATE TABLE Recruiter (
   recruiter_id    int           NOT NULL AUTO_INCREMENT,
   firstname       varchar(20)   NOT NULL,
   lastname        varchar(20)   NOT NULL,
-  total_time_sum  double        NOT NULL,
-  total_talks     int           NOT NULL,
-  last_start      TIMESTAMP     NOT NULL,
+  total_time_sum  double        NOT NULL DEFAULT 0,
+  total_talks     int           NOT NULL DEFAULT 0,
+  last_start      TIMESTAMP     NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (recruiter_id)
 );
 
