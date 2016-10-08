@@ -8,6 +8,8 @@ app = Flask(__name__, template_folder='templates')
 
 app.register_blueprint(controllers.ticket)
 app.register_blueprint(controllers.main)
+app.register_blueprint(controllers.queue)
+app.register_blueprint(controllers.survey)
 
 app.secret_key = "super secret key"
 if __name__ == '__main__':

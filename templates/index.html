@@ -2,4 +2,9 @@
 {% block content %}
   <h1>Index</h1>
 
+  <ul style="list-style: none;">
+    <li><a href="{{ url_for('ticket.ticket_route') }}">Student Ticket</a></li>
+    <li><a href="{{ url_for('queue.queue_route') }}">Queue</a></li>
+  </ul>
+
 {% endblock %}

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Queue</h1>
+
+  {% if queue %}
+    <ul style="list-style: none;">
+      {% for ticket in queue %}
+        <li><a href="{{ url_for('survey.survey_route', ticketnum=ticket.ticket_num) }}">{{ ticket.ticket_num }} {{ ticket.firstname }} {{ ticket.lastname }}</a></li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+{% endblock %}

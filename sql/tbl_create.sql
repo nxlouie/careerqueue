@@ -18,8 +18,7 @@ CREATE TABLE Ticket (
   email           varchar(40)   NOT NULL,
   major           varchar(5)    NOT NULL,
   grad_year       varchar(4)    NOT NULL,
-  done            bit           NOT NULL,
-  recruiter_id    int           NOT NULL,
+  recruiter_id    int,
   PRIMARY KEY (ticket_num),
   FOREIGN KEY (recruiter_id)    REFERENCES Recruiter (recruiter_id)
 );
@@ -34,7 +33,6 @@ CREATE TABLE StudentMetrics (
   ticket_num      int           NOT NULL,
   metric_id       int           NOT NULL,
   proficiency     int           NOT NULL,
-  PRIMARY KEY (metric_id),
-  FOREIGN KEY (metric_id)       REFERENCES Ticket  (ticket_num),
-  FOREIGN KEY (ticket_num)      REFERENCES Metrics (metric_id)
+  FOREIGN KEY (metric_id)       REFERENCES Metrics (metric_id),
+  FOREIGN KEY (ticket_num)      REFERENCES Ticket  (ticket_num)
 );
