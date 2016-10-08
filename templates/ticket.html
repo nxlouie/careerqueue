@@ -2,12 +2,14 @@
 {% block content %}
   <h1>Sign into the line</h1>
   <form action="{{url_for('ticket.ticket_route')}}" method="POST">
-    <td>First Name:<input id="ticket_first_name" type="text" name="first"></td><br>
-    <td>Last Name:<input id="ticket_last_name" type="text" name="last"></td><br>
-    <td>Phone Number:<input id="ticket_phone" type="text" name="phone"></td><br>
-    <td>Email:<input id="ticket_email" type="text" name="email"></td><br>
-    <td>Major:<input id="ticket_major" type="text" name="major"></td><br>
-    <td>Grad year:<input id="ticket_grad" type="text" name="grad"></td><br>
-    <td><input id ="ticket_submit" type="submit" value="Submit"></td><br>
-  </form>
+  <ul>
+    <li>First Name:<input id="ticket_first_name" type="text" name="first"></li>
+    <li>Last Name:<input id="ticket_last_name" type="text" name="last"></li>
+    <li>Phone Number:<input id="ticket_phone" type="text" name="phone"></li>
+    <li>Email:<input id="ticket_email" type="text" name="email"></li>
+    <li>Major:<input id="ticket_major" type="text" name="major"></li>
+    <li>Grad year:<input id="ticket_grad" type="text" name="grad"></li>
+    <br>
+    <input id ="ticket_submit" type="submit" value="Submit">
+  </ul>
 {% endblock %}
