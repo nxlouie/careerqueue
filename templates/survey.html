@@ -1,8 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
   <h1>Survey</h1>
-
-  <p>{{ student.firstname }} {{ student.lastname }} {{ student.major }} graduating {{ student.grad_year }}</p>
+  
+  {% if student %}
+    <p>{{ student.firstname }} {{ student.lastname }} {{ student.major }} graduating {{ student.grad_year }}</p>
+  {% endif %}
 
   <form action="{{url_for('survey.survey_route')}}" method="POST">
     {% if metrics %}

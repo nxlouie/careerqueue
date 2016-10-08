@@ -24,4 +24,23 @@ def survey_route():
     recruiters = cur.fetchall()
     cur.close()
 
-  return render_template("survey.html", metrics=metrics, student=student[0], recruiters=recruiters)
+    return render_template("survey.html", metrics=metrics, student=student[0], recruiters=recruiters)
+
+  if request.method == 'POST':
+
+    cur = db.cursor()
+    cur.execute('SELECT * FROM Metrics')
+    metrics = cur.fetchall()
+    cur.close()
+
+    for i in range(1, len(metrics) + 1):
+      print request.form.get(str(i))
+      # update StudentMetrics Table here
+
+    comments = request.form.get('comments')
+    print comments # update Ticket table here
+
+    recruiter_id = request.form.get('recruiter_name')
+    print recruiter_id # AND update Ticket table here
+
+    return render_template("survey.html")
