@@ -6,6 +6,9 @@ import config
 # Initialize Flask app with the template folder address
 app = Flask(__name__, template_folder='templates')
 
+app.register_blueprint(controllers.ticket)
+app.register_blueprint(controllers.main)
+
 app.secret_key = "super secret key"
 if __name__ == '__main__':
   # listen on external IPs
