@@ -12,7 +12,16 @@ def survey_route():
     cur = db.cursor()
     cur.execute('SELECT * FROM Metrics')
     metrics = cur.fetchall()
-  
- #   cur.execute('SELECT ticket_num, firstname, lastname FROM Ticket')
+    cur.close()
 
-  return render_template("survey.html", metrics=metrics)
+    cur = db.cursor()
+    cur.execute('SELECT firstname, lastname, major, grad_year FROM Ticket WHERE ticket_num = %s', (ticket_num,))
+    student = cur.fetchall()
+    cur.close()
+
+    cur = db.cursor()
+    cur.execute('SELECT recruiter_id, firstname, lastname FROM Recruiter')
+    recruiters = cur.fetchall()
+    cur.close()
+
+  return render_template("survey.html", metrics=metrics, student=student[0], recruiters=recruiters)

@@ -2,28 +2,39 @@
 {% block content %}
   <h1>Survey</h1>
 
-  {% if metrics %}
-    <ul style="list-style: none;">
-      <form action="{{url_for('survey.survey_route')}}" method="POST">
-        {% for metric in metrics %}
-          <li>{{ metric.metric_name }}
-            {% for n in range(0,5) %}
-              <input type="radio" name="{{ metric.metric_id }}" value="{{ n }}"
-              
-              {% if n == 0 %}
-                checked
-              {% endif %}
-              
-              >{{ n }}
-            {% endfor %}
-          </li>
-        {% endfor %}
-          <textarea cols="50" rows ="10" name="comments"></textarea>
-        <input type="submit" value="Submit">
-      </form>
-    </ul>
-  {% endif %}
+  <p>{{ student.firstname }} {{ student.lastname }} {{ student.major }} graduating {{ student.grad_year }}</p>
+
+  <form action="{{url_for('survey.survey_route')}}" method="POST">
+    {% if metrics %}
+      <ul style="list-style: none;">
+          {% for metric in metrics %}
+            <li>{{ metric.metric_name }}
+              {% for n in range(0,5) %}
+                <input type="radio" name="{{ metric.metric_id }}" value="{{ n }}"
+                
+                {% if n == 0 %}
+                  checked
+                {% endif %}
+                
+                >{{ n }}
+              {% endfor %}
+            </li>
+          {% endfor %}
+            <textarea cols="50" rows ="10" name="comments"></textarea>
+      </ul>
+    {% endif %}
 
 
+    <p>I am recruiter with name:</p>
+
+    {% if recruiters %}
+       <ul style="list-style: none;">
+         {% for recruiter in recruiters %}
+            <li><input type="radio" name="recruiter_name" value="{{ recruiter.recruiter_id }}" checked>{{ recruiter.firstname }} {{ recruiter.lastname }}</li>
+         {% endfor %}
+       </ul>
+    {% endif %}
+    <input type="submit" value="Submit">
+  </form>
 
 {% endblock %}
