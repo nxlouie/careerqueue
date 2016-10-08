@@ -7,7 +7,7 @@ queue = Blueprint('queue', __name__, template_folder='templates')
 def queue_route():
   cur = db.cursor()
 
-  cur.execute('SELECT ticket_num, firstname, lastname FROM Ticket WHERE recruiter_id IS NULL')
+  cur.execute('SELECT ticket_num, firstname, lastname FROM Ticket WHERE recruiter_id IS NULL AND hidden = 0')
   queue = cur.fetchall()
  
   cur.close()

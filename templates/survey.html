@@ -6,9 +6,19 @@
     <ul style="list-style: none;">
       <form action="{{url_for('survey.survey_route')}}" method="POST">
         {% for metric in metrics %}
-          <li>{{ metric.metric_name }}<input type="text" name="{{ metric.metric_id }}"></li>
+          <li>{{ metric.metric_name }}
+            {% for n in range(0,5) %}
+              <input type="radio" name="{{ metric.metric_id }}" value="{{ n }}"
+              
+              {% if n == 0 %}
+                checked
+              {% endif %}
+              
+              >{{ n }}
+            {% endfor %}
+          </li>
         {% endfor %}
-          <textarea cols="86" rows ="20" name="comments"></textarea>
+          <textarea cols="50" rows ="10" name="comments"></textarea>
         <input type="submit" value="Submit">
       </form>
     </ul>
