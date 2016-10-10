@@ -15,5 +15,10 @@ def notification_route():
     text_num = cur.fetchall()
     body = "Test text"
     to_num = "+1" + str(text_num[0]['phone'])
-    message = client.messages.create(to=to_num, from_=config.env['twilio_number'], body=body)
+
+    try:
+      client.messages.create(to=to_num, from_=config.env['twilio_number'], body=body)
+    except Exception as error:
+      print error[0]
+
     return ""

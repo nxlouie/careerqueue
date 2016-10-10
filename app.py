@@ -13,7 +13,7 @@ app.register_blueprint(controllers.survey)
 app.register_blueprint(controllers.profile)
 app.register_blueprint(controllers.notification)
 
-app.secret_key = "super secret key"
+app.secret_key = config.env['secret_key']
 if __name__ == '__main__':
   # listen on external IPs
   app.run(host=config.env['host'], port=config.env['port'], debug=True)
