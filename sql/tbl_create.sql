@@ -21,6 +21,7 @@ CREATE TABLE Ticket (
   comments        varchar(200),
   recruiter_id    int,
   hidden          bit           DEFAULT 0,
+  messaged        bit           DEFAULT 0,
   PRIMARY KEY (ticket_num),
   FOREIGN KEY (recruiter_id)    REFERENCES Recruiter (recruiter_id)
 );
